@@ -1,0 +1,117 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background-color: #faf3e0;
+    color: #5b4636;
+    text-align: center;
+}
+
+header {
+    background-color: #d3c4aa;
+    padding: 10px 0;
+    border-bottom: 2px solid #a89276;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #5b4636;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #a67c52;
+}
+
+.nav-title {
+    font-size: 2.5rem;
+    color: #5b4636;
+    margin: 10px 0;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Animation Container */
+.animation-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 40px auto;
+    border: 3px solid #a89276;
+    border-radius: 50%;
+    background-color: #fdf8ee;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Canvas Styling */
+canvas#brainCanvas {
+    display: block;
+    margin: 20px auto;
+    border: 3px solid #a89276;
+    border-radius: 50%;
+    background-color: #fdf8ee;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+section#home {
+    padding: 20px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #d3c4aa;
+    padding: 15px;
+    border-top: 2px solid #a89276;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Flower Animation */
+@keyframes bloomFlowers {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+}
+
+.flower {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff6f61;
+    animation: bloomFlowers 4s infinite ease-in-out;
+}
+
+.brain {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 40px;
+    background-color: #d6d6d6;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
