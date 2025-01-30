@@ -1,40 +1,66 @@
-const brainCanvas = document.getElementById("brainCanvas");
-const brainCtx = brainCanvas.getContext("2d");
+const canvas = document.getElementById("vinesCanvas");
+const ctx = canvas.getContext("2d");
 
-brainCanvas.width = brainCanvas.offsetWidth;
-brainCanvas.height = brainCanvas.offsetHeight;
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
 
-let brainTime = 0;
+const vines = [];
+const maxVines = 50;
 
-function drawBrain() {
-    brainCtx.clearRect(0, 0, brainCanvas.width, brainCanvas.height);
-
-    const centerX = brainCanvas.width / 2;
-    const centerY = brainCanvas.height / 2;
-    const baseRadius = 100;
-    const pulse = Math.sin(brainTime) * 10; // Smooth pulsation
-    const radius = baseRadius + pulse;
-
-    brainCtx.beginPath();
-    brainCtx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-    brainCtx.closePath();
-
-    // Fill with gradient
-    const gradient = brainCtx.createRadialGradient(centerX, centerY, baseRadius / 2, centerX, centerY, radius);
-    gradient.addColorStop(0, "#d3c4aa");
-    gradient.addColorStop(1, "#a89276");
-
-    brainCtx.fillStyle = gradient;
-    brainCtx.fill();
-
-    // Stroke the outline
-    brainCtx.strokeStyle = "#5b4636";
-    brainCtx.lineWidth = 3;
-    brainCtx.stroke();
-
-    brainTime += 0.03;
-    requestAnimationFrame(drawBrain);
+function randomRange(min, max) {
+    return Math.random() * (max - min) + min;
 }
 
-drawBrain();
+function createVine() {
+    const angle = randomRange(0, Math.PI * 2);
+    return {
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        dx: Math.cos(angle) * randomRange(1, 3),
+        dy: Math.sin(angle) * randomRange(1, 3),
+        points: [],
+        maxPoints: randomRange(20, 50),
+        color: `hsl(${randomRange(0, 360)}, 70%, 50%)`,
+    };
+}
 
+function drawVine(vine) {
+    vine.points.push({ x: vine.x, y: vine.y });
+    if (vine.points.length > vine.maxPoints) {
+        vine.points.shift();
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(vine.points[0].x, vine.points[0].y);
+    for (let i = 1; i < vine.points.length; i++) {
+        ctx.lineTo(vine.points[i].x, vine.points[i].y);
+    }
+    ctx.strokeStyle = vine.color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    vine.x += vine.dx;
+    vine.y += vine.dy;
+
+    // Bounce off walls
+    if (vine.x < 0 || vine.x > canvas.width) vine.dx *= -1;
+    if (vine.y < 0 || vine.y > canvas.height) vine.dy *= -1;
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let vine of vines) {
+        drawVine(vine);
+    }
+
+    requestAnimationFrame(animate);
+}
+
+// Initialize vines
+for (let i = 0; i < maxVines; i++) {
+    vines.push(createVine());
+}
+
+// Start animation
+animate();
