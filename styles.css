@@ -42,76 +42,46 @@ nav ul li a:hover {
     font-family: 'Playfair Display', serif;
 }
 
-/* Animation Container */
-.animation-container {
+#animationContainer {
     position: relative;
-    width: 400px;
-    height: 400px;
-    margin: 40px auto;
-    border: 3px solid #a89276;
-    border-radius: 50%;
-    background-color: #fdf8ee;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 500px;
+    background-color: #3B82F6;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-/* Canvas Styling */
-canvas#brainCanvas {
-    display: block;
-    margin: 20px auto;
-    border: 3px solid #a89276;
-    border-radius: 50%;
-    background-color: #fdf8ee;
-    width: 400px;
-    height: 400px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-section#home {
-    padding: 20px;
-}
-
-/* Footer Styling */
-footer {
-    background-color: #d3c4aa;
-    padding: 15px;
-    border-top: 2px solid #a89276;
-    font-size: 0.9rem;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Flower Animation */
-@keyframes bloomFlowers {
-    0% {
-        transform: scale(0.8);
-        opacity: 0.5;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(0.8);
-        opacity: 0.5;
-    }
-}
-
-.flower {
+#circleContainer {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 300px;
+    height: 300px;
+    background-color: #ffffff;
+    border: 5px solid #a89276;
     border-radius: 50%;
-    background-color: #ff6f61;
-    animation: bloomFlowers 4s infinite ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
 
-.brain {
+#innerCircle {
     position: absolute;
+    width: 150px;
+    height: 150px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60px;
-    height: 40px;
-    background-color: #d6d6d6;
+    background-color: #d3c4aa;
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#vinesCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
