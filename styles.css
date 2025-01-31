@@ -2,14 +2,14 @@
 body {
     margin: 0;
     font-family: 'Dancing Script', cursive; /* Fancy cursive font */
-    background-color: #fef9f3; /* Light warm cream */
+    background-color: #f7d9c4; /* Light warm cream */
     color: #3a2e1e; /* Rich brown for text */
     text-align: center;
 }
 
 /* Header Styles */
 header {
-    background-color: #f7d9c4; /* Warm peach tone */
+    background-color: #ec7b7d; /* Warm peach tone */
     padding: 10px 0;
     border-bottom: 2px solid #e5b391; /* Soft caramel border */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -32,7 +32,7 @@ header {
 }
 
 .nav-title a:hover {
-    color: #ec7b7d; /* Hover effect color */
+    color: #f7d9c4; /* Hover effect color */
 }
 
 /* Sub-navigation links below the main title */
@@ -55,7 +55,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ec7b7d; /* Vibrant pinkish-red inspired by flowers */
+    color: #f7d9c4; /* Vibrant pinkish-red inspired by flowers */
 }
 
 /* Updated animation container */
@@ -112,38 +112,74 @@ nav ul li a:hover {
 
 .movie-card img {
     width: 100%;
-    height: auto;
+    height: 300px;
     display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Added filter transition */
 }
 
-.movie-card:hover {
-    transform: scale(1.05);
+.movie-card:hover img {
+    transform: scale(1.1); /* Slight zoom-in effect */
+    filter: brightness(0.5); /* Darkens the image */
 }
 
 /* Title overlay */
 .movie-title {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to perfect center */
     color: #fff;
-    font-size: 1.2rem;
-    padding: 10px;
+    font-size: 1.5rem; /* Adjust size as needed */
+    padding: 10px 20px; /* Add padding around the text */
+    border-radius: 5px; /* Rounded edges */
     text-align: center;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
 }
 
 .movie-card:hover .movie-title {
-    transform: translateY(0);
+    opacity: 1; /* Make the title visible on hover */
 }
+
 
 /* Footer */
 footer {
-    background-color: #f7d9c4; /* Matches header */
+    background-color: #ec7b7d; /* Matches header */
     padding: 20px;
     border-top: 2px solid #e5b391;
     color: #3a2e1e;
     font-family: 'Dancing Script', cursive; /* Fancy font for footer as well */
+}
+
+
+/* Fade-in Animation */
+.about-paragraph {
+    font-family: 'Creepster', cursive; /* Spooky font */
+    font-size: 1.5rem;
+    line-height: 2rem;
+    max-width: 800px;
+    text-shadow: 2px 2px 5px #000; /* Shadow for extra depth */
+    letter-spacing: 2px; /* Slightly spaced letters */
+    border: 2px solid #e63946; /* Bloody red border */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
+    border-radius: 10px; /* Smooth corners */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Slightly pushed down */
+    animation: fadeIn 2s ease-out forwards; /* Fade-in animation */
+}
+
+/* Hover Glow Effect */
+.about-paragraph:hover {
+    text-shadow: 0 0 10px #e63946, 0 0 20px #e63946; /* Glowing effect */
+    border-color: #fff; /* Border changes to white */
+}
+
+/* Keyframes for Fade-in */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Original position */
+    }
 }
