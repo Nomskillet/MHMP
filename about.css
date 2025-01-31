@@ -1,0 +1,112 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    color: #3a2e1e; /* Rich brown for text */
+    text-align: center;
+    background: url('/tree.webp') center/cover no-repeat, linear-gradient(135deg, #2e2e2e, #1c1c1c); /* Spooky layered effect */
+    background-blend-mode: overlay;
+}
+
+/* Header Styles */
+header {
+    background-color: #ec7b7d; /* Warm peach tone */
+    padding: 10px 0;
+    border-bottom: 2px solid #e5b391; /* Soft caramel border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.nav-title {
+    font-size: 3rem;
+    margin: 0;
+    font-family: 'Great Vibes', cursive;
+    color: #3a2e1e;
+    text-shadow: none; /* Remove glow effect for simplicity */
+}
+
+.nav-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-title a:hover {
+    color: #f7d9c4;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #3a2e1e;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: 'Dancing Script', cursive;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f7d9c4;
+}
+
+/* About Section */
+.about-section {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 30px 50px;
+    background-color: rgba(255, 250, 240, 0.9); /* Soft off-white with slight transparency */
+    border: 2px solid #e5b391;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
+    backdrop-filter: blur(5px); /* Subtle glassmorphism effect */
+}
+
+.about-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #3a2e1e;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.about-section p {
+    line-height: 1.8;
+    margin: 15px 0;
+    color: #3a2e1e;
+}
+
+/* Centered List Styling */
+.about-section ul {
+    list-style: none;
+    margin: 30px 0;
+    padding: 0;
+}
+
+.about-section ul li {
+    margin-bottom: 10px;
+    background: rgba(236, 123, 125, 0.2); /* Subtle peach background */
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    text-align: left; /* Align text for readability */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Footer */
+footer {
+    background-color: #ec7b7d;
+    padding: 20px;
+    border-top: 2px solid #e5b391;
+    color: #3a2e1e;
+    font-family: 'Dancing Script', cursive;
+    position: relative;
+    z-index: 1; /* Ensures it doesn't overlay */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
