@@ -1,0 +1,59 @@
+import requests
+import json
+
+# URL to the JSON file
+url = "https://spot-bid-advisor.s3.amazonaws.com/spot-advisor-data.json"
+
+# Provided interruption rate map
+interruption_rate_map = [
+    {"index": 0, "label": "<5%", "dots": 0, "max": 5},
+    {"index": 1, "label": "5-10%", "dots": 1, "max": 11},
+    {"index": 2, "label": "10-15%", "dots": 2, "max": 16},
+    {"index": 3, "label": "15-20%", "dots": 3, "max": 22},
+    {"index": 4, "label": ">20%", "dots": 4, "max": 100},
+]
+
+# Function to map r to a label
+def get_label(r_value):
+    for entry in interruption_rate_map:
+        if r_value <= entry["max"]:
+            return entry["label"]
+    return "Unknown"
+
+# Function to map s (savings) to a label
+def get_savings_label(s_value):
+    if s_value > 50:
+        return "High Savings"
+    elif s_value > 20:
+        return "Moderate Savings"
+    else:
+        return "Low Savings"
+
+# Fetch and parse the JSON data
+response = requests.get(url)
+data = response.json()
+
+# Processed servers list
+processed_servers = []
+
+# Function to process servers
+def process_servers(nested_data):
+    for key, value in nested_data.items():
+        # If the value is a dictionary, check for r and process it
+        if isinstance(value, dict):
+          if Linux not in key and r not in value
+
+        elif isinstance(value, list):
+            print(f"Skipping list: {key}")
+        # Otherwise, skip non-relevant data
+        else:
+            print(f"Skipping key: {key} - Not a dictionary or relevant server data")
+
+# Start processing the data
+process_servers(data)
+
+# Save the processed data to a file
+with open("processed_servers.json", "w") as file:
+    json.dump(processed_servers, file, indent=2)
+
+print("Processed servers saved to 'processed_servers.json'")

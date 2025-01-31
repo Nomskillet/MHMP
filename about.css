@@ -10,19 +10,21 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #ec7b7d; /* Warm peach tone */
-    padding: 10px 0;
-    border-bottom: 2px solid #e5b391; /* Soft caramel border */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
+    background: linear-gradient(90deg, #ec7b7d, #f4a7a7); /* Subtle gradient for a modern look */
+    padding: 8px 0;
+    border-bottom: 1px solid #e5b391; /* Thinner border for sleekness */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    position: sticky; /* Keeps the header at the top */
+    top: 0;
+    z-index: 10; /* Ensures it stays on top */
 }
 
 .nav-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin: 0;
     font-family: 'Great Vibes', cursive;
-    color: #3a2e1e;
-    text-shadow: none; /* Remove glow effect for simplicity */
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .nav-title a {
@@ -31,42 +33,44 @@ header {
 }
 
 .nav-title a:hover {
-    color: #f7d9c4;
+    color: #ffd6d6;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
 }
 
 /* Navigation */
 nav ul {
     list-style: none;
-    margin: 20px 0 0;
+    margin: 10px 0 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 15px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #3a2e1e;
+    color: #fff;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: 'Dancing Script', cursive;
-    transition: color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #f7d9c4;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffd6d6;
 }
-
 /* About Section */
 .about-section {
     max-width: 800px;
-    margin: 100px auto;
-    padding: 30px 50px;
-    background-color: rgba(255, 250, 240, 0.9); /* Soft off-white with slight transparency */
+    margin: 80px auto; /* Adjusted for better spacing */
+    padding: 30px 40px;
+    background: rgba(255, 250, 240, 0.95); /* Slightly reduced transparency */
     border: 2px solid #e5b391;
     border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
-    backdrop-filter: blur(5px); /* Subtle glassmorphism effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
 }
 
 .about-section h1 {
@@ -90,23 +94,40 @@ nav ul li a:hover {
 }
 
 .about-section ul li {
-    margin-bottom: 10px;
-    background: rgba(236, 123, 125, 0.2); /* Subtle peach background */
-    padding: 10px 15px;
+    margin-bottom: 15px;
+    background: rgba(236, 123, 125, 0.1); /* Lighter background for elegance */
+    padding: 10px 20px;
     border-radius: 10px;
     font-size: 1.1rem;
-    text-align: left; /* Align text for readability */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+    text-align: left;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-section ul li:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 /* Footer */
 footer {
-    background-color: #ec7b7d;
-    padding: 20px;
-    border-top: 2px solid #e5b391;
-    color: #3a2e1e;
+    background: linear-gradient(90deg, #ec7b7d, #f4a7a7); /* Gradient to match header */
+    padding: 10px 0;
+    border-top: 1px solid #e5b391;
+    color: #fff;
     font-family: 'Dancing Script', cursive;
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     position: relative;
-    z-index: 1; /* Ensures it doesn't overlay */
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    z-index: 10;
+}
+
+footer p {
+    margin: 0;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+footer p:hover {
+    color: #ffd6d6;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
